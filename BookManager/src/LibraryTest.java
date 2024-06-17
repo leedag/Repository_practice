@@ -47,4 +47,23 @@ class LibraryTest {
         assertTrue(library.removeBook("1"));
         assertFalse(library.removeBook("1"));
     }
+
+
+@Test
+void testSearchBS() {
+    Book book = library.search_bs("1");
+    assertNotNull(book);
+    assertEquals("자바 기초", book.getTitle());
+
+    book = library.search_bs("2");
+    assertNotNull(book);
+    assertEquals("소프트웨어 공학", book.getTitle());
+
+    book = library.search_bs("3");
+    assertNotNull(book);
+    assertEquals("분산 컴퓨팅", book.getTitle());
+
+    book = library.search_bs("999");
+    assertNull(book);
+}
 }

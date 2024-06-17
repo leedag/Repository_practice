@@ -54,4 +54,25 @@ public class Library {
         System.out.println("해당 ID(" + id + ")의 도서를 찾을 수 없습니다.");
         return false;
     }
+
+public Book search_bs(String id) {
+    int left = 0;
+    int right = books.size() - 1;
+
+    while (left <= right) {
+        int mid = left + (right - left) / 2;
+        Book midBook = books.get(mid);
+
+        int cmp = midBook.getId().compareTo(id);
+        if (cmp == 0) {
+            return midBook;
+        } else if (cmp < 0) {
+            left = mid + 1;
+        } else {
+            right = mid - 1;
+        }
+    }
+    System.out.println("해당 ID(" + id + ")의 도서를 찾을 수 없습니다.");
+    return null;
+}
 }
